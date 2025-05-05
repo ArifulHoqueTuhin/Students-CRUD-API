@@ -1,3 +1,4 @@
+using CRUDAPI.CustomMiddleware;
 using CRUDAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,6 +29,12 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 app.UseCors("AllowReactApp");
+
+//app.UseMiddleware<AuthenticationCustomMiddleware>();
+
+
+app.UseMiddleware<RequestLogingCustomMiddleware>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

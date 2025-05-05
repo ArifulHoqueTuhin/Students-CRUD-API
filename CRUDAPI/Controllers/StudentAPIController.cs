@@ -9,9 +9,10 @@ namespace CRUDAPI.Controllers
     [ApiController]
     public class StudentAPIController : ControllerBase
     {
+        private readonly ILogger<CodeFirstApproach2Context> logger;
         private readonly CodeFirstApproach2Context dbData;
 
-        public StudentAPIController(CodeFirstApproach2Context DbData) 
+        public StudentAPIController(CodeFirstApproach2Context DbData, ILogger<StudentAPIController> logger) 
         {
             dbData = DbData;
         }
